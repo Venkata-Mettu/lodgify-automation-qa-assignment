@@ -1,0 +1,1 @@
+# lodgify-automation-qa-assignment
