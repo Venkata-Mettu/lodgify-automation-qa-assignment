@@ -1,0 +1,5 @@
+node_modules
+allure-report
+allure-results
+driver-logs
+wdio-appium.log
