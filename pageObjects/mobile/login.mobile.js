@@ -1,11 +1,8 @@
 
-
-const Page = require('./page');
-
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginMobilePage extends Page {
+class LoginMobilePage {
     /**
      * define selectors using getter methods
      */

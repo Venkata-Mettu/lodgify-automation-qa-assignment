@@ -5,6 +5,7 @@ const { expect } = require('chai');
 
 const req = request('https://api.todoist.com/rest/v2');
 const token = '06e0185ea583db9a7718a5361a5e0c03562ec6c9';
+let taskID;
 
 Given(/^I create (\w+) project via api$/, async (projectName) => {
     const res = await req
@@ -37,4 +38,37 @@ When(/^I create (\w+) task via api$/, async (taskName) => {
         .expect(200);
     console.log(`*********************************** ` + JSON.stringify(res));
     expect(res.body.content).eq(taskName);
+});
+
+When(/^I get (\w+) task ID via api$/, async (taskName) => {
+    const res = await req
+        .get('/tasks')
+        .set('Content-Type', 'application/json')
+        .set({ Authorization: `Bearer ${token}` })
+        .expect(200);
+    console.log(`*********************************** `+ res.body+ '**************' + JSON.stringify(res.body));
+    taskID = res.body.find(x => x.content == 'TASK1').id
+    console.log(taskID)
+});
+
+When(/^I reopen (\w+) task via api$/, async (taskName) => {
+    const res = await req
+        .post(`/tasks/${taskID}/reopen`)
+        .set('Content-Type', 'application/json')
+        .set({ Authorization: `Bearer ${token}` })
+        .expect(204);
+        await browser.pause(2000)
+        console.log(`%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% % `+ JSON.stringify(res.body));
+});
+
+
+Then(/^I delete (\w+) project via api$/, async (taskName) => {
+    const res = await req
+        .get('/projects')
+        .set('Content-Type', 'application/json')
+        .set({ Authorization: `Bearer ${token}` })
+        .expect(200);
+    console.log(`*********************************** `+ res.body+ '**************' + JSON.stringify(res.body));
+    // taskID = res.body.find(x => x.content == 'TASK1').id
+    // console.log(taskID)
 });

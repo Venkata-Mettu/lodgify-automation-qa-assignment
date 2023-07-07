@@ -21,7 +21,10 @@
         "wdio-wait-for": "^3.0.5"
     },
     "scripts": {
-        "wdio": "wdio run ./wdio.conf.js"
+        "test:web": "wdio run ./wdio.web.conf.js",
+        "test:mobile": "wdio run ./wdio.mobile.conf.js",
+        "test": "npm run test:web && npm run test:mobile",
+        "openreports": "allure open"
     },
     "dependencies": {
         "allure-commandline": "^2.23.0"
