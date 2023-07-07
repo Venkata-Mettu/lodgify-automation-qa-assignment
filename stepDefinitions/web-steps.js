@@ -8,6 +8,11 @@ const pages = {
     login: LoginPage
 }
 
+/**
+    * @author Venkata Mettu
+    *
+    * web steps
+    */
 Given(/^I am on the (\w+) page$/, async (page) => {
     await pages[page].open()
 });

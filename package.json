@@ -1,32 +1,43 @@
 {
-    "name": "webdriverio-tests",
-    "version": "0.1.0",
-    "private": true,
-    "devDependencies": {
-        "@wdio/allure-reporter": "^8.11.0",
-        "@wdio/appium-service": "^8.11.2",
-        "@wdio/cli": "^8.11.2",
-        "@wdio/cucumber-framework": "^8.11.0",
-        "@wdio/local-runner": "^8.11.2",
-        "@wdio/spec-reporter": "^8.11.2",
-        "appium": "^2.0.0-rc.5",
-        "appium-uiautomator2-driver": "^2.29.2",
-        "chai": "^4.3.7",
-        "chromedriver": "^114.0.2",
-        "mocha": "^10.2.0",
-        "supertest": "^6.3.3",
-        "ts-node": "^10.9.1",
-        "typescript": "^4.9.5",
-        "wdio-chromedriver-service": "^8.1.1",
-        "wdio-wait-for": "^3.0.5"
-    },
-    "scripts": {
-        "test:web": "wdio run ./wdio.web.conf.js",
-        "test:mobile": "wdio run ./wdio.mobile.conf.js",
-        "test": "npm run test:web && npm run test:mobile",
-        "openreports": "allure open"
-    },
-    "dependencies": {
-        "allure-commandline": "^2.23.0"
-    }
+  "name": "lodgify-automation-qa-tests",
+  "version": "0.1.0",
+  "description": "This framework designed using WebDriverIO, Cucumber, Appium, SuperTest, and Allure reporting",
+  "keywords": [
+    "webdriverio",
+    "cucumber",
+    "pom",
+    "appium",
+    "supertest",
+    "allure"
+  ],
+  "author": "Venkata Mettu",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.11.0",
+    "@wdio/appium-service": "^8.11.2",
+    "@wdio/cli": "^8.11.2",
+    "@wdio/cucumber-framework": "^8.11.0",
+    "@wdio/local-runner": "^8.11.2",
+    "@wdio/spec-reporter": "^8.11.2",
+    "appium": "^2.0.0-rc.5",
+    "appium-uiautomator2-driver": "^2.29.2",
+    "chai": "^4.3.7",
+    "chromedriver": "^114.0.2",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-wait-for": "^3.0.5"
+  },
+  "scripts": {
+    "test:web": "wdio run ./wdio.web.conf.js",
+    "test:mobile": "wdio run ./wdio.mobile.conf.js",
+    "test": "npm run test:web && npm run test:mobile",
+    "openreports": "allure open"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.23.0"
+  }
 }

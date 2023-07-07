@@ -7,7 +7,11 @@ class ProjectMobilePage {
     /**
      * define selectors using getter methods
      */
-
+/**
+    * @author Venkata Mettu
+    *
+    * page objects in project page for mobile app
+    */
     get menuButton() {
         return $('//android.widget.ImageButton[@content-desc="Menu"]');
     }
@@ -58,12 +62,6 @@ class ProjectMobilePage {
         await expect(this.task(taskName)).toBeDisplayed();
     }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    open () {
-        return super.open();
-    }
 }
 
 module.exports = new ProjectMobilePage();
