@@ -1,3 +1,5 @@
+#author: Venkata Mettu
+
 Feature: Reopen Task in Mobile
 
   Scenario Outline: Scenario Outline name: As a user, I want to validate Reopen Task functionality in mobile
@@ -10,6 +12,6 @@ Feature: Reopen Task in Mobile
     Then I should see <task> appears in <project> project after reopening
     And I logout
     And I delete <project> project via api
-    Examples: 
+    Examples:
       | project | task  |
-      | TEST1    | TASK1 |
+      | TEST1   | TASK1 |

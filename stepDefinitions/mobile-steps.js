@@ -5,7 +5,11 @@ const HomeMobilePage = require('../pageObjects/mobile/home.mobile');
 const ProjectMobilePage = require('../pageObjects/mobile/project.mobile');
 const TestData = require('../config/testData.js')
 
-
+/**
+    * @author Venkata Mettu
+    *
+    * mobile steps
+    */
 Given(/^I login to todoist mobile application$/, async () => {
     console.log(TestData)
     await LoginMobilePage.login(TestData.username, TestData.password);

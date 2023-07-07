@@ -25,6 +25,8 @@ This framework designed using WebDriverIO, Cucumber, Appium, SuperTest, and Allu
   ```
 * Appium Inspector: Appium Inspector is bundled with Appium Desktop, which provides a graphical interface to inspect and interact with mobile applications. Download and install Appium Desktop from the official Appium website: http://appium.io
 
+* Android app apk file 
+
 
 
 ## Installation
