@@ -7,7 +7,7 @@ class HomeMobilePage {
 
 
     project(projectName) {
-        return $(`//android.widget.TextView[@text="${projectName}"]`);
+        return $(`//android.widget.TextView[@text="${projectName}"]/parent::android.view.View`);
 
     }
     
@@ -33,10 +33,10 @@ class HomeMobilePage {
     
     
     async openProject (projectName) {
-        await browser.pause(1000)
+        await browser.pause(3000)
         await this.menuButton.waitForDisplayed();
         await this.menuButton.click();
-        await browser.pause(1000)
+        await browser.pause(3000)
         await this.project(projectName).waitForDisplayed();
         await this.project(projectName).click();
     }

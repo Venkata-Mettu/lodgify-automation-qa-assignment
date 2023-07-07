@@ -1,71 +1,82 @@
-**TODOIST
-**
+# Web and Mobile Test Automation for TODOIST application
 
-This project contains WebDriverIO tests using Cucumber, Appium, and Allure reporting.
-
-Installation
-
-To install the project dependencies, run the following command:
+This framework designed using WebDriverIO, Cucumber, Appium, SuperTest, and Allure reporting.
 
 
-npm install
-This will install all the necessary dependencies specified in the package.json file.
 
-Running Tests
-
-To execute the tests, use the following command:
+## Prerequisites
 
 
-npm run wdio
-This command runs the tests using WebDriverIO with the specified configuration in wdio.conf.js.
+### Web Automation Prerequisites:
 
-Dependencies
+* Node.js
+* npm
+* chrome browser
 
-The project has the following dependencies:
 
-@wdio/allure-reporter: ^8.11.0
-@wdio/appium-service: ^8.11.2
-@wdio/cli: ^8.11.2
-@wdio/cucumber-framework: ^8.11.0
-@wdio/local-runner: ^8.11.2
-@wdio/spec-reporter: ^8.11.2
-appium: ^2.0.0-rc.5
-appium-uiautomator2-driver: ^2.29.2
-chai: ^4.3.7
-chromedriver: ^114.0.2
-mocha: ^10.2.0
-supertest: ^6.3.3
-ts-node: ^10.9.1
-typescript: ^4.9.5
-wdio-chromedriver-service: ^8.1.1
-wdio-wait-for: ^3.0.5
-Reporting
+### Mobile Automation Prerequisites:
 
-This project uses Allure for reporting. The necessary dependencies are already installed.
+* Android Studio: Install Android Studio to set up the Android development environment and access the necessary tools for mobile automation. You can download it from the official * Android Studio website: https://developer.android.com/studio
+
+* Java Development Kit (JDK): Install the JDK and configure the environment variables. You can download it from the Oracle website or use OpenJDK.
+* Appium: Install Appium globally by running the following command:
+```sh
+  npm install appium -g
+  ```
+* Appium Inspector: Appium Inspector is bundled with Appium Desktop, which provides a graphical interface to inspect and interact with mobile applications. Download and install Appium Desktop from the official Appium website: http://appium.io
+
+
+
+## Installation
+
+Follow these steps to set up the project:
+
+* Clone this repository to your local machine:
+
+* git clone https://github.com/Venkata-Mettu/lodgify-automation-qa-assignment.git
+
+* Install the project dependencies using npm:
+```sh
+  npm install
+  ```
+
+
+## Writing tests
+
+1. Using Cucumber BDD syntax , write the tests for the features in .feature file format under features folder.
+Use Cucumber extension if required in VSCode.
+2. This frameworks used Page Object Model so page elements and page specific functionalty can be found under pageObjects folder.
+3. Then write Step Definitions required under stepDefinitions with right naming convention.
+
+## Running Tests
+
+To execute the tests for web , use following command:
+```sh
+npm run test:web
+```
+To execute the tests for mobile , use following command:
+```sh
+npm run test:mobile
+```
+Make sure emulator has been created and running, update the emulator capabilities in wdio.mobile.conf.js if required. And also make sure Appium is running before executing mobile scripts.
+
+<br />
+<br />
+
+To execute the tests for both web and mobile, use the following command:
+```sh
+npm run test
+```
+
+## Reporting
+
+This project uses Allure for reporting. The necessary dependencies are added to package.json.
 
 To generate and view the test reports, follow these steps:
 
-After running the tests, execute the following command:
+After running the tests, it automatically generate the reports using allure generate command. (Screenshot capturing is enabled for web)
 
-allure generate
-
-This command generates the Allure report based on the test results.
-To open the generated report in your default browser, run the following command:
-
-allure open
-
-The Allure report will open in your browser, providing detailed information about the test execution, including passed and failed scenarios, screenshots, and logs.
-Scripts
-
-The package.json file defines the following script:
-
-wdio: Runs the tests using WebDriverIO.
-Contributing
-
-Contributions are welcome! If you find any issues or want to add new features, please submit a pull request.
-
-License
-
-MIT License
-
-Feel free to customize this README file based on your project's specific requirements and add any additional sections or information as needed.
+The reports can be open by running the following command defined in the script:
+```sh
+npm run openreports
+```

@@ -1,4 +1,4 @@
-Feature: Create Project
+Feature: Create Project and Task
 
   Scenario Outline: As a user, I want to validate create project functionality
     Given I create <project> project via api
