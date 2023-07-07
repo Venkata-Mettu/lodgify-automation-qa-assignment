@@ -1,12 +1,8 @@
-const Page = require('./page');
+const Page = require('../common/page');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class HomePage extends Page {
-    /**
-     * define selectors using getter methods
-     */
+
     get header() {
         return $('.simple_content');
     }
@@ -43,6 +39,14 @@ class HomePage extends Page {
         return $('.task_content')
     }
 
+    taskCheckbox(taskName) {
+        return $(`//div[@class="task_content" and text()="${taskName}"]//ancestor::div[@class="task_list_item__content"]/preceding-sibling::button`)
+    }
+
+    get taskCompleted() {
+        return $('//div[contains(text(), "completed")]')
+    }
+
     async addTask(taskName) {
         await this.lastItemInListOfProjects.click();
         await this.addTaskCTA.waitForDisplayed({ timeout: 3000 });
@@ -53,11 +57,14 @@ class HomePage extends Page {
         await this.addTaskButton.click();
         await browser.pause(2000);
     }
+
+    async completeTask(taskName) {
+        await this.taskCheckbox(taskName).waitForDisplayed();
+        await this.taskCheckbox(taskName).click();
+        await this.taskCompleted.waitForDisplayed();
+        await expect(this.taskCompleted).toBeDisplayed();
+    }
 }
 
 module.exports = new HomePage();
 
-
-// id = com.todoist:id/btn_welcome_email
-// id = com.todoist:id/textinput_placeholder
-// id = com.todoist:id/btn_continue_with_email

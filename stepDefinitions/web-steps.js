@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 
-const LoginPage = require('../pageobjects/login.page');
-const HomePage = require('../pageobjects/home.page');
+const LoginPage = require('../pageObjects/web/login.page');
+const HomePage = require('../pageObjects/web/home.page');
 
 const username = 'venkatamettu@gmail.com';
 const password = 'Testing@123';
@@ -33,4 +33,8 @@ When(/^I create (\w+) task via web application in (.*) project$/, async (taskNam
 Then(/^I should see (\w+) created correctly on web$/, async(taskName) => {
     await HomePage.inbox.click();
     await expect(HomePage.taskCreated).toHaveText(taskName);
+});
+
+Then(/^I complete the (\w+) task$/, async(taskName) => {
+    await HomePage.completeTask(taskName);
 });
