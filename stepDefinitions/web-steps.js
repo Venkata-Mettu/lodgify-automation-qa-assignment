@@ -2,9 +2,7 @@ const { Given, When, Then } = require('@wdio/cucumber-framework');
 
 const LoginPage = require('../pageObjects/web/login.page');
 const HomePage = require('../pageObjects/web/home.page');
-
-const username = 'venkatamettu@gmail.com';
-const password = 'Testing@123';
+const TestData = require('../config/testData.js')
 
 const pages = {
     login: LoginPage
@@ -16,7 +14,7 @@ Given(/^I am on the (\w+) page$/, async (page) => {
 
 When(/^I (\w+) into web application$/, async (page) => {
     await pages[page].open();
-    await LoginPage.login(username, password);
+    await LoginPage.login(TestData.username, TestData.password);
 });
 
 Then(/^I should see (\w+) project is created$/, async (projectName) => {

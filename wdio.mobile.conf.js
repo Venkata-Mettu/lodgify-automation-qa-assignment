@@ -58,12 +58,12 @@ exports.config = {
     capabilities: [{
         
         platformName: "Android", // or "iOS"
-        "appium:deviceName": "Pixel 6 (Edited) API 33", // or "iPhone Simulator"
+        "appium:deviceName": "Pixel 6", // or "iPhone Simulator"
         "appium:automationName": "UiAutomator2",
         "appium:app": path.join(process.cwd(), "app/todoist.apk"),
         "appium:uiautomator2ServerLaunchTimeout": 200000,
         "appium:uiautomator2ServerInstallTimeout": 200000,
-        // "appium:appWaitForLaunch": true,
+        "appium:appWaitForLaunch": true,
         "appium:autoGrantPermissions": true,
         "appium:adbExecTimeout": 200000,
         "appium:androidInstallTimeout": 150000,
@@ -79,7 +79,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'trace',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -106,7 +106,7 @@ exports.config = {
     baseUrl: 'https://todoist.com/',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 25000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -149,7 +149,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {
+    reporters: ['spec',['allure', {
         outputDir: 'allure-results',
         disableWebdriverStepsReporting: false,
         disableWebdriverScreenshotsReporting: false,
@@ -292,7 +292,6 @@ exports.config = {
      * @param {object}                 context          Cucumber World object
      */
     afterScenario: function (world, result, context) {
-        browser.pause(5000)
         browser.closeApp()
     },
     /**
